@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{3CE4444E-F831-4DEC-8318-E79A6A6066CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.csproj", "{3CE4444E-F831-4DEC-8318-E79A6A6066CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonVault", "SingletonVault\SingletonVault.csproj", "{4832F4CB-D803-4448-8102-BBAEA29F0102}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingletonVault", "SingletonVault\SingletonVault.csproj", "{4832F4CB-D803-4448-8102-BBAEA29F0102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarriorBuilder", "WarriorBuilder\WarriorBuilder.csproj", "{F46C02A3-9E7D-4954-ADA3-EFAB9A8F2579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarriorBuilder", "WarriorBuilder\WarriorBuilder.csproj", "{F46C02A3-9E7D-4954-ADA3-EFAB9A8F2579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSmells", "CH01_CodeSmells\CodeSmells.csproj", "{2DCC377B-6C5F-422A-B194-047B96E02B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prototype.csproj", "{7180A289-F219-438D-9B5A-1FB64BC55CC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{F46C02A3-9E7D-4954-ADA3-EFAB9A8F2579}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F46C02A3-9E7D-4954-ADA3-EFAB9A8F2579}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F46C02A3-9E7D-4954-ADA3-EFAB9A8F2579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DCC377B-6C5F-422A-B194-047B96E02B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DCC377B-6C5F-422A-B194-047B96E02B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DCC377B-6C5F-422A-B194-047B96E02B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DCC377B-6C5F-422A-B194-047B96E02B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7180A289-F219-438D-9B5A-1FB64BC55CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7180A289-F219-438D-9B5A-1FB64BC55CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7180A289-F219-438D-9B5A-1FB64BC55CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7180A289-F219-438D-9B5A-1FB64BC55CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
