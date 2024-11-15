@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeSmells", "CH01_CodeSmel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototype", "Prototype\Prototype.csproj", "{7180A289-F219-438D-9B5A-1FB64BC55CC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApiFacade", "WeatherApiFacade\WeatherApiFacade.csproj", "{E3756D8E-5FAB-41BC-A8F1-6F5E49E66C6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherApiFacade", "WeatherApiFacade\WeatherApiFacade.csproj", "{E3756D8E-5FAB-41BC-A8F1-6F5E49E66C6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Proxy\Proxy.csproj", "{B4AEDDCE-BC88-4F04-A786-61F4CEAF75FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{CB8878C5-139D-4CF7-9037-2616798C727F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csproj", "{6E9298F7-8495-4BFC-89E2-F28589EE1EFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{E3756D8E-5FAB-41BC-A8F1-6F5E49E66C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3756D8E-5FAB-41BC-A8F1-6F5E49E66C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3756D8E-5FAB-41BC-A8F1-6F5E49E66C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4AEDDCE-BC88-4F04-A786-61F4CEAF75FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4AEDDCE-BC88-4F04-A786-61F4CEAF75FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4AEDDCE-BC88-4F04-A786-61F4CEAF75FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4AEDDCE-BC88-4F04-A786-61F4CEAF75FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB8878C5-139D-4CF7-9037-2616798C727F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB8878C5-139D-4CF7-9037-2616798C727F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB8878C5-139D-4CF7-9037-2616798C727F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB8878C5-139D-4CF7-9037-2616798C727F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E9298F7-8495-4BFC-89E2-F28589EE1EFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E9298F7-8495-4BFC-89E2-F28589EE1EFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E9298F7-8495-4BFC-89E2-F28589EE1EFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E9298F7-8495-4BFC-89E2-F28589EE1EFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
