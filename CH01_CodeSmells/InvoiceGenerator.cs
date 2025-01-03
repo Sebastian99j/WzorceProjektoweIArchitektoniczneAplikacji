@@ -1,4 +1,7 @@
-﻿using iTextSharp.text.pdf;
+﻿using System;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace CodeSmells
 {
@@ -7,10 +10,22 @@ namespace CodeSmells
         public void GenerateInvoice()
         {
             int invoiceNumber = 12345;
-            using (PdfWriter pdfWriter = new PdfWriter($"Invoice_{invoiceNumber}.pdf"))
+            string fileName = $"Invoice_{invoiceNumber}.pdf";
+
+            using (FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
             {
-                pdfWriter.Write("Invoice Content");
+                Document document = new Document();
+
+                PdfWriter writer = PdfWriter.GetInstance(document, fileStream);
+
+                document.Open();
+
+                document.Add(new Paragraph("Invoice Content"));
+
+                document.Close();
             }
+
+            Console.WriteLine($"Invoice saved as {fileName}");
         }
 
         public void OtherMethod()
