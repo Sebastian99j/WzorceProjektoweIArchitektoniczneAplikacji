@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Composite", "Composite\Comp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flyweight", "Flyweight\Flyweight.csproj", "{57D44908-EA94-4381-A96C-83AEEB173B8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose", "GildedRose\GildedRose.csproj", "{ACB82F1C-FE8E-4FE1-B9CD-87CFC1443FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GildedRose", "GildedRose\GildedRose.csproj", "{ACB82F1C-FE8E-4FE1-B9CD-87CFC1443FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRoseTests", "GildedRoseTestss\GildedRoseTests.csproj", "{14724813-239F-47BB-A8F7-E55C1728E072}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GildedRoseTests", "GildedRoseTestss\GildedRoseTests.csproj", "{14724813-239F-47BB-A8F7-E55C1728E072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MojBlogCMS", "MojBlogCMS\MojBlogCMS.csproj", "{BD93E156-95CA-47E4-A521-345E5461C964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{14724813-239F-47BB-A8F7-E55C1728E072}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14724813-239F-47BB-A8F7-E55C1728E072}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14724813-239F-47BB-A8F7-E55C1728E072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD93E156-95CA-47E4-A521-345E5461C964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD93E156-95CA-47E4-A521-345E5461C964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD93E156-95CA-47E4-A521-345E5461C964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD93E156-95CA-47E4-A521-345E5461C964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
