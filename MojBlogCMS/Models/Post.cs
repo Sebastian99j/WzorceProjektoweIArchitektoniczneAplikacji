@@ -2,7 +2,7 @@
 
 namespace MojBlogCMS.Models
 {
-    public class Post
+    public class Post : IPost
     {
         public int Id { get; set; }
 

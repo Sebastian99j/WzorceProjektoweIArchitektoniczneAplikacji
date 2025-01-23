@@ -74,15 +74,15 @@ public class PostsController : ControllerBase
     }
 
     [HttpPost("create-default")]
-    public IActionResult CreateDefaultPost([FromServices] IPostFactory<Post> postFactory, [FromServices] IPostFacade blogFacade)
+    public async Task<IActionResult> CreateDefaultPost([FromServices] IPostFactory<IPost> postFactory, [FromServices] IPostFacade blogFacade)
     {
         var post = postFactory.Create();
-        blogFacade.CreatePostAsync(post);
+        await blogFacade.CreatePostAsync((Post)post);
         return Ok(post);
     }
 
     [HttpPost("create-custom")]
-    public IActionResult CreateCustomPost([FromServices] IPostFactory<Post> postFactory, [FromServices] IPostFacade blogFacade)
+    public IActionResult CreateCustomPost([FromServices] IPostFactory<IPost> postFactory, [FromServices] IPostFacade blogFacade)
     {
         var post = postFactory.Create(p =>
         {
@@ -91,13 +91,13 @@ public class PostsController : ControllerBase
             p.ImageUrl = "Custom Image";
             p.Published = DateTime.UtcNow.AddDays(-1);
         });
-        blogFacade.CreatePostAsync(post);
+        blogFacade.CreatePostAsync((Post)post);
 
         return Ok(post);
     }
 
     [HttpPost("create-custom-full")]
-    public IActionResult CreateCustomPostFull([FromServices] IPostFactory<Post> postFactory, [FromServices] IPostFacade blogFacade, [FromBody] Post pt)
+    public IActionResult CreateCustomPostFull([FromServices] IPostFactory<IPost> postFactory, [FromServices] IPostFacade blogFacade, [FromBody] Post pt)
     {
         var post = postFactory.Create(p =>
         {
@@ -106,7 +106,7 @@ public class PostsController : ControllerBase
             p.ImageUrl = pt.ImageUrl;
             p.Published = DateTime.UtcNow.AddDays(-1);
         });
-        blogFacade.CreatePostAsync(post);
+        blogFacade.CreatePostAsync((Post)post);
 
         return Ok(post);
     }
@@ -125,9 +125,10 @@ public class PostsController : ControllerBase
         }
     }
 
-    [HttpPost]
+    [HttpPost("create-post")]
     public async Task<IActionResult> CreatePost(
         [FromServices] ValidationManager<Post> validationManager,
+        [FromServices] IPostFacade blogFacade,
         [FromQuery] string strategyName,
         [FromBody] Post post)
     {
@@ -136,7 +137,7 @@ public class PostsController : ControllerBase
             return BadRequest(new { error = errorMessage });
         }
 
-        await _postRepository.AddAsync(post);
+        await blogFacade.CreatePostAsync(post);
         return CreatedAtAction(nameof(GetPostById), new { id = post.Id }, post);
     }
 }

@@ -1,8 +1,10 @@
-﻿namespace MojBlogCMS.Factory
+﻿using MojBlogCMS.Models;
+
+namespace MojBlogCMS.Factory
 {
-    public interface IPostFactory<T> where T : class
+    public interface IPostFactory<T> where T : IPost
     {
-        T Create();
-        T Create(Action<T> configure);
+        T Create(ComponentType type = ComponentType.POST);
+        T Create(Action<T> configure, ComponentType type = ComponentType.POST);
     }
 }

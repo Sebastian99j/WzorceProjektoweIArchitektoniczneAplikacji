@@ -24,7 +24,7 @@ builder.Services.AddSingleton(BlogDbContextSingleton.GetInstance(options));
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EfCoreRepository<>));
 builder.Services.AddScoped<IPostFacade, PostFacade>();
-builder.Services.AddScoped<IPostFactory<Post>, PostFactory>();
+builder.Services.AddScoped<IPostFactory<IPost>, PostFactory>();
 
 builder.Services.AddScoped(typeof(ValidationManager<>));
 builder.Services.AddScoped<IValidationStrategy<Post>, PostValidationStrategy>();
