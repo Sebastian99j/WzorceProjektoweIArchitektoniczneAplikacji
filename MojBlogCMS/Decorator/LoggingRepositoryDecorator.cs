@@ -1,4 +1,5 @@
 ﻿using MojBlogCMS.Repositories;
+using System.Linq.Expressions;
 
 namespace MojBlogCMS.Decorator
 {
@@ -39,6 +40,12 @@ namespace MojBlogCMS.Decorator
         {
             Console.WriteLine($"[LOG] Deleting entity of type {typeof(T).Name}.");
             return await _innerRepository.DeleteAsync(entity);
+        }
+
+        public Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null)
+        {
+            Console.WriteLine($"[LOG] GetAllAsync entity of type {typeof(T).Name}.");
+            return _innerRepository.GetAllAsync(filter);
         }
     }
 }

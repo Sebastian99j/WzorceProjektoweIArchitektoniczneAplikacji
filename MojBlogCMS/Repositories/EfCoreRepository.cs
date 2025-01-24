@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MojBlogCMS.Data;
+using System.Linq.Expressions;
 
 namespace MojBlogCMS.Repositories
 {
@@ -24,6 +25,20 @@ namespace MojBlogCMS.Repositories
             await _context.SaveChangesAsync();
 
             return (int)typeof(T).GetProperty("Id")?.GetValue(entity);
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync(
+            Expression<Func<T, bool>>? filter = null)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            var result = await query.ToListAsync();
+            return result;
         }
 
         public async Task<bool> UpdateAsync(T entity)

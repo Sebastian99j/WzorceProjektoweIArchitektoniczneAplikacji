@@ -11,5 +11,6 @@ namespace MojBlogCMS.Facade
         Task<bool> DeletePostAsync(int id);
         Task PublishPostAsync(int id);
         Post CreateDefaultPost();
+        Task<IEnumerable<Post>> GetFilteredPostsAsync(string? title = null, string? author = null, DateTime? published = null);
     }
 }

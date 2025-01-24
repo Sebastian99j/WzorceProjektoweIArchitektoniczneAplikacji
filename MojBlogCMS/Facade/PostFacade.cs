@@ -61,5 +61,16 @@ namespace MojBlogCMS.Facade
             post.Published = DateTime.UtcNow;
             await _postRepository.UpdateAsync(post);
         }
+
+        public async Task<IEnumerable<Post>> GetFilteredPostsAsync(string? title = null, string? content = null,
+            DateTime? published = null)
+        {
+            return await _postRepository.GetAllAsync(
+                filter: p =>
+                    (string.IsNullOrEmpty(title) || p.Title.Contains(title)) &&
+                    (string.IsNullOrEmpty(content) || p.Content.Contains(content)) &&
+                    (!published.HasValue || p.Published >= published.Value)
+            );
+        }
     }
 }

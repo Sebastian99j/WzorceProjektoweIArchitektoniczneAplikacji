@@ -24,6 +24,14 @@ public class PostsController : ControllerBase
         return Ok(posts);
     }
 
+    [HttpGet("filter")]
+    public async Task<IActionResult> GetAllPosts([FromServices] IPostFacade postFacade, [FromQuery] string? title, 
+        [FromQuery] string? content, [FromQuery] DateTime? published)
+    {
+        var posts = await postFacade.GetFilteredPostsAsync(title, content, published);
+        return Ok(posts);
+    }
+
     // GET: api/posts/{id}
     [HttpGet("{id}")]
     public async Task<IActionResult> GetPostById(int id)
@@ -97,7 +105,7 @@ public class PostsController : ControllerBase
     }
 
     [HttpPost("create-custom-full")]
-    public IActionResult CreateCustomPostFull([FromServices] IPostFactory<IPost> postFactory, [FromServices] IPostFacade blogFacade, [FromBody] Post pt)
+    public IActionResult CreateCustomPostFull([FromServices] IPostFactory<IPost> postFactory, [FromServices] IPostFacade postFacade, [FromBody] Post pt)
     {
         var post = postFactory.Create(p =>
         {
@@ -106,17 +114,17 @@ public class PostsController : ControllerBase
             p.ImageUrl = pt.ImageUrl;
             p.Published = DateTime.UtcNow.AddDays(-1);
         });
-        blogFacade.CreatePostAsync((Post)post);
+        postFacade.CreatePostAsync((Post)post);
 
         return Ok(post);
     }
 
     [HttpPut("publish/{id}")]
-    public async Task<IActionResult> PublishPost(int id, [FromServices] IPostFacade blogFacade)
+    public async Task<IActionResult> PublishPost(int id, [FromServices] IPostFacade postFacade)
     {
         try
         {
-            await blogFacade.PublishPostAsync(id);
+            await postFacade.PublishPostAsync(id);
             return NoContent();
         }
         catch (Exception ex)
@@ -128,7 +136,7 @@ public class PostsController : ControllerBase
     [HttpPost("create-post")]
     public async Task<IActionResult> CreatePost(
         [FromServices] ValidationManager<Post> validationManager,
-        [FromServices] IPostFacade blogFacade,
+        [FromServices] IPostFacade postFacade,
         [FromQuery] string strategyName,
         [FromBody] Post post)
     {
@@ -137,7 +145,7 @@ public class PostsController : ControllerBase
             return BadRequest(new { error = errorMessage });
         }
 
-        await blogFacade.CreatePostAsync(post);
+        await postFacade.CreatePostAsync(post);
         return CreatedAtAction(nameof(GetPostById), new { id = post.Id }, post);
     }
 }
