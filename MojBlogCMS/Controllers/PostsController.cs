@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MojBlogCMS.Facade;
 using MojBlogCMS.Factory;
 using MojBlogCMS.Models;
@@ -20,6 +21,19 @@ public class PostsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllPosts()
     {
+        var posts = await _postRepository.GetAllAsync();
+        return Ok(posts);
+    }
+
+    [HttpGet("secure")]
+    [Authorize]
+    public async Task<IActionResult> GetAllPostsSecure()
+    {
+        var userName = User.Identity?.Name;
+        var isAuthenticated = User.Identity?.IsAuthenticated ?? false;
+
+        Console.WriteLine($"Authenticated User: {userName}, IsAuthenticated: {isAuthenticated}");
+
         var posts = await _postRepository.GetAllAsync();
         return Ok(posts);
     }
